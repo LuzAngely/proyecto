@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+ }
+
+header {
+    background-color: #306BB3;
+    height: 10vh;
+    width: 100vw;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.navegacion {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.colortitle {
+    color: white;
+}
+
+.paginas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+    padding: 8px 25px;
+}
+
+button{
+    color: #306BB3;
+    padding: 8px 25px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+}
+
+section {
+    width: 50%;
+}
+
+.articulo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.vinculos {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-weight: bold;
+}
+
+.imagen{
+    padding-left: 50px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #306BB3;
+    height: 40vh;
+    width: 100vw;
+    color: white;
+    align-items: center;
+    padding: 50px;
+}
+
+.redes {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.Logo {
+    display: flex;
+    align-self: flex-start;
+}
+
+.informacion{
+    padding: 100px;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.listinf{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    }
+
+/* .fa-brands {
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    -webkit-box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25;
+    box-shadow: -4px -1px 43px 1px rgba(0, 0, 0, 0.25);
+} */

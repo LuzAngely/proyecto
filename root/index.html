@@ -1,81 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/root/styles/style.css">
+    <link rel="stylesheet" href="/root/styles/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"   />
     <title>Pokemon</title>
 </head>
+
 <body>
     <header>
-        <img 
-         class="Logo"
-         src="/root/assets/logo.png"
-         alt="Logo Pokemon">
-         <nav class="paginas">
-            <ul>
-                <li>
-                    <a href="/root/index.html">Home</a>
-                </li>
-                <li>
-                    <a href="/root/buycard.html">Buy Cards</a>
-                </li>
-                <li>
-                    <a href="/root/ourblog.html">Our Blog</a>
-                </li>
-                <li>
-                    <button>Dark mode</button>
-                </li>
-            </ul>
-         </nav>
+        <img src="/root/assets/logo.png" alt="Logo Pokemon">
+        <div class="navegacion">
+            <nav>
+                <ul class="paginas">
+                    <li>
+                        <a class="colortitle" href="/root/index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="colortitle" href="/root/buycard.html">Buy Cards</a>
+                    </li>
+                    <li>
+                        <a class="colortitle" href="/root/ourblog.html">Our Blog</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button>Dark mode</button>
+        </div>
     </header>
     <main>
-        <p>Discover the treasures awaiting for you...</p>
-        <h1>Pokemon Action Figures, Toys and cards</h1>
-        <p>Pokémon is a media franchise owned by video game giant Nintendo and created by Satoshi Tajiri around 1995. Originally released as a pair of interlinkable Game Boy role-playing video games, Pokémon has since become the 2nd most successful and lucrative video game-based media franchise in the world, behind only Nintendo's Mario series.
-        </p>
-        <ul class="vinculos">
-            <li>
-                <a href="/root/ourblog.html">Go to our blog</a>
-            </li>
-            <li>
-                <a href="/root/buycard.html">Buy cards</a>
-            </li>
-        </ul>
-        <img 
-        class="Logo"
-        src="/root/assets/ash-leaves-anime 1.png" 
-        alt="Imagen de los pokemons">
+        <section class="articulo">
+            <p>Discover the treasures awaiting for you...</p>
+            <h1>Pokemon Action Figures, Toys and cards</h1>
+            <p>Pokémon is a media franchise owned by video game giant Nintendo and created by Satoshi Tajiri around
+                1995.
+                Originally released as a pair of interlinkable Game Boy role-playing video games, Pokémon has since
+                become the
+                2nd most successful and lucrative video game-based media franchise in the world, behind only Nintendo's
+                Mario
+                series.
+            </p>
+            <ul class="vinculos">
+                <li>
+                    <a href="/root/ourblog.html">Go to our blog</a>
+                </li>
+                <li>
+                    <a href="/root/buycard.html">Buy cards</a>
+                </li>
+            </ul>
+        </section>
+        <img class="imagen" src="/root/assets/ash-leaves-anime 1.png" alt="Imagen de los pokemons">
     </main>
     <footer>
-        <img src="/root/assets/logo.png" alt="Logo Pokemon">
-        <p>Our vision is to provide convenience and help increase your sales business.</p>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <ul> About
-            <li>How it works</li>
-            <li>Featured</li>
-            <li>Partnership</li>
-            <li>Bussiness Relation</li>
-        </ul>
-        <ul> Community
-            <li>Events</li>
-            <li>Blog</li>
-            <li>Podcast</li>
-            <li>Invite a friend</li>
-        </ul>
-        <ul> Socials
-            <li>Discord</li>
-            <li>Instagram</li>
-            <li>Twitter</li>
-            <li>Facebook</li>
-        </ul>
+        <div class="redes">
+            <img class="Logo" src="/root/assets/logo.png" alt="Logo Pokemon">
+            <p>Our vision is to provide convenience and help increase your sales business.</p>
+            <div>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+        </div>
+        <div class="informacion">
+            <ul class="listinf"> About
+                <li>How it works</li>
+                <li>Featured</li>
+                <li>Partnership</li>
+                <li>Bussiness Relation</li>
+            </ul>
+
+            <ul class="listinf"> Community
+                <li>Events</li>
+                <li>Blog</li>
+                <li>Podcast</li>
+                <li>Invite a friend</li>
+            </ul>
+
+            <ul class="listinf"> Socials
+                <li>Discord</li>
+                <li>Instagram</li>
+                <li>Twitter</li>
+                <li>Facebook</li>
+            </ul>
+        </div>
     </footer>
 </body>
+
 </html>
