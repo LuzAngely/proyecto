@@ -5,6 +5,10 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+body{
+    max-width: 95vw;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -47,6 +51,7 @@ header {
 button{
     color: #306BB3;
     padding: 8px 25px;
+    border-radius: 8px;
 }
 
 main{
@@ -68,6 +73,71 @@ h1{
     justify-content: center;
 }
 
+.todo{
+    display: flex;
+    flex-direction: column;
+}
+
+.pestanas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.pestanas li {
+    border-bottom: 1px solid gray;
+    font-weight: normal;
+    width: 100%;
+    text-align: center/* fuente normal por defecto */
+}
+  
+.pestanas li:hover {
+    border-bottom: 2px solid black; /* línea negra al pasar el mouse */
+    font-weight: bold; /* fuente en negrita al pasar el mouse */
+}
+
+.grilla{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.carta{
+    height: 350px;
+    width: 250px;
+    background-color: #DEE5ED;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.contenidocarta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.etiqueta{
+    font-weight: bolder;
+}
+
+.pokemoncarta{
+    margin: 10%;
+    background-color: white;
+    max-height: 200px;
+    border-radius: 8px;
+}
+
+.buy{
+    color: white;
+    background-color: #306BB3;
+    padding: 8px 25px;
+}
+
 .boton{
     color: white;
     background-color: #306BB3;
@@ -78,11 +148,14 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-
+    position: relative;
+    right: 0;
 }
 
 .cartas{
     color: #306BB3;
+    position: absolute;
+    right: 0;
 }
 
 footer {
@@ -123,4 +196,12 @@ footer {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
-    }
+}
+
+.listinf a{
+    color: white;
+}
+
+.titulo{
+    font-weight: bolder;
+}

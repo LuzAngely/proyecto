@@ -47,6 +47,7 @@ header {
 button{
     color: #306BB3;
     padding: 8px 25px;
+    border-radius: 8px;
 }
 
 main {
@@ -121,8 +122,15 @@ footer {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
-    }
+}
 
+.listinf a{
+    color: white;
+}
+
+.titulo{
+    font-weight: bolder;
+}
 /* .fa-brands {
     background: white;
     width: 30px;
