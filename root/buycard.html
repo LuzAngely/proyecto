@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/buycard.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/darkMode.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;800&display=swap"
@@ -17,6 +20,7 @@
 </head>
 
 <body>
+
     <header>
         <img src="assets/logo.png" alt="Logo Pokemon">
         <div class="navegacion">
@@ -34,10 +38,12 @@
                 </ul>
             </nav>
 
-            <button>Dark mode</button>
+            <button class="darkMode" >Dark mode</button>
         </div>
     </header>
+
     <main>
+<section>
         <h1>Checkout Out Pokemon Cards</h1>
         <p class="texto">The Pokemon Go expansion for the Pokemon Trading Card Game will release soon. </p>
 
@@ -47,11 +53,13 @@
             <li> <a href="#">Fire</a></li>
             <li> <a href="#">Water</a></li>
         </ul>
-        <div class="todo">
+
+        
+        <!-- <div class="todo"> -->
 
             <div class="grilla">
-
-                <div class="carta">
+                
+                <!-- <div class="carta">
                     <div class="contenidocarta">
                         <p class="etiqueta">Name</p>
                         <i class="fa-sharp fa-regular fa-heart"></i>
@@ -97,75 +105,25 @@
                         <p class="etiqueta">Power level</p>
                         <button class="buy">Buy</button>
                     </div>
-                </div>
+                </div> -->
             </div>
-
-            <div class="grilla">
-
-                <div class="carta">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Name</p>
-                        <i class="fa-sharp fa-regular fa-heart"></i>
-                    </div>
-                    <img class="pokemoncarta" src="assets/Pokemon1.png" alt="Pokemon de fuego">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Power level</p>
-                        <button class="buy">Buy</button>
-                    </div>
-                </div>
-
-                <div class="carta">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Name</p>
-                        <i class="fa-sharp fa-regular fa-heart"></i>
-                    </div>
-                    <img class="pokemoncarta" src="assets/Pokemon2.png" alt="Pokemon de agua">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Power level</p>
-                        <button class="buy">Buy</button>
-                    </div>
-                </div>
-
-                <div class="carta">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Name</p>
-                        <i class="fa-sharp fa-regular fa-heart"></i>
-                    </div>
-                    <img class="pokemoncarta" src="assets/Pokemon3.png" alt="Pokemon de tierra">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Power level</p>
-                        <button class="buy">Buy</button>
-                    </div>
-                </div>
-
-                <div class="carta">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Name</p>
-                        <i class="fa-sharp fa-regular fa-heart"></i>
-                    </div>
-                    <img class="pokemoncarta" src="assets/Pokemon4.png" alt="Pikachu">
-                    <div class="contenidocarta">
-                        <p class="etiqueta">Power level</p>
-                        <button class="buy">Buy</button>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
 
         <div class="vercartas">
-            <button class="boton">Show more cards</button>
-            <p class="cartas">120 cards</p>
-        </div>
+            <button class="boton more">Show more cards</button>
+            <p class="cartas"></p>
+        </div> 
+
+    </section>
     </main>
+
     <footer>
         <div class="redes">
             <img class="Logo" src="assets/logo.png" alt="Logo Pokemon">
             <p>Our vision is to provide convenience and help increase your sales business.</p>
-            <div>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
+            <div class="social_media">
+                <i class="fa-brands fa-facebook fa-xl"></i>
+                <i class="fa-brands fa-twitter fa-xl"></i>
+                <i class="fa-brands fa-instagram fa-xl"></i>
             </div>
         </div>
         <div class="informacion">
@@ -194,6 +152,8 @@
             </ul>
         </div>
     </footer>
+    <script src="script/buycard.js"></script>
+    <script src="script/darkMode.js"></script>
 </body>
 
 </html>
