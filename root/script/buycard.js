@@ -1,4 +1,4 @@
-const containerPokemons = document.querySelector(".grilla");
+const containerPokemons = document.querySelector(".grid");
 let pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
 // let offset = 0;
 // let limit = 8;
@@ -16,8 +16,6 @@ async function loadPokemons(url) {
         console.log(res);
         console.log(data);
 
-        if (!res.ok) throw { status: res.status, statusText: res.statusText };
-
         for (let i = 0; i < data.results.length; i++) {
 
             try {
@@ -29,9 +27,6 @@ async function loadPokemons(url) {
                 // );
 
                 console.log(res, pokemon);
-
-                if (!res.ok) throw { status: res.status, statusText: res.statusText };
-
                 template += `
             
                 <div class="carta">
@@ -41,7 +36,7 @@ async function loadPokemons(url) {
                     </div>
                     <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}" class="pokemoncarta">
                     <div class="contenidocarta">
-                        <p><b>Experience:${pokemon.base_experience}</b></p>
+                        <p><b>${pokemon.base_experience} Exp</b></p>
                         <button class="buy">Buy</button>
                     </div>
                 </div>
