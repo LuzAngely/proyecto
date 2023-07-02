@@ -1,33 +1,48 @@
 const containerPokemons = document.querySelector(".grid");
+const showMoreButton = document.querySelector(".botonMore");
+let cards = document.querySelector(".cartas");
+
 let pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
-// let offset = 0;
-// let limit = 8;
-// let totalcards = 0;
+let template = "";
+let loadpokemons = 8;
+let initialPokemons = 8
 
 async function loadPokemons(url) {
+
     try {
         containerPokemons.innerHTML = `<img class="loader" src="./assets/loader.svg" alt="Cargando...">`;
 
-        // const res = await fetch(`${url}/pokemon?offset=${offset}&limit=${limit}`);
         const res = await fetch(url);
         const data = await res.json();
-        template = "";
 
-        console.log(res);
-        console.log(data);
+        localStorage.setItem("Pokemones", JSON.stringify(data));
 
-        for (let i = 0; i < data.results.length; i++) {
+    } catch (err) {
 
-            try {
-                let res = await fetch(data.results[i].url);
-                let pokemon = await res.json();
+        console.log(err);
+        let message = err.statusText || "Ocurrió un error";
 
-                // const [type1, type2] = pokemon.types.map(
-                //     (typeObj) => typeObj.type.name
-                // );
+        containerPokemons.innerHTML = `<p> Error ${err.status}:${message}</p>`;
 
-                console.log(res, pokemon);
-                template += `
+    }
+
+    return (data)
+}
+
+
+async function printInitialPokemons() {
+
+    let data = JSON.parse(localStorage.getItem("Pokemones"));
+
+    for (let i = 0; i < loadpokemons; i++) {
+
+        try {
+            let res = await fetch(data.results[i].url);
+            let pokemon = await res.json();
+
+
+            // console.log(res, pokemon);
+            template += `
             
                 <div class="carta">
                     <div class="contenidocarta">
@@ -41,58 +56,90 @@ async function loadPokemons(url) {
                     </div>
                 </div>
                  `;
-                
-                 // totalcards++;
-                
-            } catch (err) {
-                console.log(err);
-                let message = err.statusText || "Ocurrió un error";
-                template.innerHTML = `<div class="card">
-              <div class="name">
-                <p><b>Name</b></p>
-                <i class="fa-regular fa-heart"></i>
-              </div>
-              <div class="back-pokemon">
-                <p>Error ${err.status}: ${message}</p>
-              </div>
-              <div class="power">
-               <p><b>Power Level</b></p>
-               <button>Buy</button>
-              </div>
+
+
+        } catch (err) {
+            console.log(err);
+            let message = err.statusText || "Ocurrió un error";
+            template.innerHTML = ` <div class="carta">
+                <div class="contenidocarta">
+                    <p><b>Name</b></p>
+                    <i class="fa-sharp fa-regular fa-heart"></i>
+                </div>
+                <div class="back-pokemon">
+                 <p>Error ${err.status}: ${message}</p>
+                </div>
+                <div class="contenidocarta">
+                    <p><b>Experience</b></p>
+                    <button class="buy">Buy</button>
+                </div>
             </div>`;
 
-            }
-
-
-            
-            // const carts = document.querySelector(".cartas");
-            // carts.textContent = `${totalcards} cards`;
-
         }
-        containerPokemons.innerHTML = template;
-
-    } catch (err) {
-
-        console.log(err);
-        let message = err.statusText || "Ocurrió un error";
-
-        containerPokemons.innerHTML = `<p> Error ${err.status}:${message}</p>`;
 
     }
+
+    containerPokemons.innerHTML = template;
+    cards.textContent = `${loadpokemons} cards`;
 }
 
+async function loadMorePokemons () {
+
+    let data = JSON.parse(localStorage.getItem("Pokemones"));
+   
+
+    for (let i = loadpokemons; i < initialPokemons + loadpokemons; i++) {
+
+
+        try {
+            let res = await fetch(data.results[i].url);
+            let pokemon = await res.json();
+
+            // console.log(res, pokemon);
+            template += `
+            
+                <div class="carta">
+                    <div class="contenidocarta">
+                        <p><b>${pokemon.name}</b></p>
+                        <i class="fa-sharp fa-regular fa-heart"></i>
+                    </div>
+                    <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}" class="pokemoncarta">
+                    <div class="contenidocarta">
+                        <p><b>${pokemon.base_experience} Exp</b></p>
+                        <button class="buy">Buy</button>
+                    </div>
+                </div>
+                 `;
+
+
+        } catch (err) {
+            console.log(err);
+            let message = err.statusText || "Ocurrió un error";
+            template.innerHTML = ` <div class="carta">
+                <div class="contenidocarta">
+                    <p><b>Name</b></p>
+                    <i class="fa-sharp fa-regular fa-heart"></i>
+                </div>
+                <div class="back-pokemon">
+                 <p>Error ${err.status}: ${message}</p>
+                </div>
+                <div class="contenidocarta">
+                    <p><b>Experience</b></p>
+                    <button class="buy">Buy</button>
+                </div>
+            </div>`;
+
+        }
+
+    }
+
+    loadpokemons = loadpokemons + initialPokemons;
+    containerPokemons.innerHTML = template;
+    cards.textContent = `${loadpokemons} cards`;
+
+}
+
+
 document.addEventListener("DOMContentLoaded", (e) => loadPokemons(pokeAPI));
-
-// const moreCards = document.querySelector(".more");
-// moreCards.addEventListener("click", loadPokemons);
-
-// const typeLinks = document.querySelectorAll(".pestanas");
-
-// typeLinks.forEach((type) => {
-//     type.addEventListener("click", (evento) => {
-//         evento.preventDefault();
-//         const tipo = type.textContent.toLocaleLowerCase();
-//         filterByType(tipo);
-//     });
-// });
-
+document.addEventListener("DOMContentLoaded", (e) => printInitialPokemons());
+showMoreButton.addEventListener("click", loadMorePokemons);
