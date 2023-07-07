@@ -20,12 +20,12 @@ buttonDm.addEventListener("click", function(){
 
   //Guardar en el localStorage
 
-  localStorage.setItem("PageTheme", JSON.stringify(theme));
+  localStorage.setItem("PageTheme", theme);
 
 
 })
 
-let getTheme = JSON.parse(localStorage.getItem("PageTheme"));
+let getTheme = localStorage.getItem("PageTheme");
 
 if (getTheme === "Dark") {
   document.body.classList = "dark_mode";

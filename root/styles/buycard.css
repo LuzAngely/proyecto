@@ -51,21 +51,21 @@ h1{
     flex-direction: column;
 }
 
-.pestanas{
+.filter{
     display: flex;
     justify-content: space-around;
     width: 90%;
     margin-top: 2%;
 }
 
-.pestanas li {
+.filter li {
     border-bottom: 1px solid gray;
     font-weight: normal;
     width: 100%;
     text-align: center/* fuente normal por defecto */
 }
   
-.pestanas li:hover {
+.filter li:hover {
     border-bottom: 2px solid black; /* línea negra al pasar el mouse */
     font-weight: bold; /* fuente en negrita al pasar el mouse */
 }
@@ -115,7 +115,7 @@ h1{
     padding: 8px 25px;
 }
 
-.botonMore{
+.buttonMore{
     color: white;
     background-color: #306BB3;
     padding: 8px 25px;

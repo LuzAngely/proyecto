@@ -4,8 +4,16 @@
     color: #ffffff;
   }
   
-dark_mode.a{
+.dark_mode>main>section>ul>li>a{
     color: white;
+}
+.grid{
+  color: #1a1a1a;
+}
+
+.dark_mode>main>section>ul>li:hover {
+  border-bottom: 2px solid white; /* línea negra al pasar el mouse */
+  font-weight: bold; 
 }
 
 .colortitle{
