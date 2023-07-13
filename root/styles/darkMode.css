@@ -7,6 +7,10 @@
 .dark_mode>main>section>ul>li>a{
     color: white;
 }
+.dark_mode h1{
+  color: #ffffff;
+  font-weight: bold;
+}
 .grid{
   color: #1a1a1a;
 }

@@ -4,11 +4,12 @@ let cards = document.querySelector(".cartas");
 let filtertype = document.querySelector(".filter");
 
 let pokeAPI = "https://pokeapi.co/api/v2";
-
+let template = "";
 let loadPokemons = 8;
 let initialPokemons = 0;
-let template = "";
 let filter = undefined;
+
+
 
 
 
@@ -34,17 +35,6 @@ async function loadData() {
         containerPokemons.innerHTML = `<p> Error ${err.status}:${message}</p>`;
     }
 }
-
-function filteroptions(e) {
-    if (e.target.matches(".filter li a")) {
-        e.preventDefault();
-        filter = e.target.textContent.toLowerCase();
-    }
-    // console.log(filter);
-    filterPokemons(filter);
-    printPokemons(filter)
-}
-
 
 async function filterPokemons(filter) {
 
@@ -75,6 +65,7 @@ async function printPokemons(filter) {
 
     let datafilter = await filterPokemons(filter);
     console.log(datafilter)
+    
 
     for (let i = initialPokemons; i < loadPokemons; i++) {
 
@@ -88,7 +79,7 @@ async function printPokemons(filter) {
                 // console.log(res,pokemon)
             } else if( filter !== undefined && filter !== "all"){
                 // console.log("Si se cumplio el filtro de", filter)
-                console.log(datafilter[i].pokemon.url)
+                // console.log(datafilter[i].pokemon.url)
                 res = await fetch (datafilter[i].pokemon.url);
             }
             pokemon = await res.json();
@@ -106,8 +97,6 @@ async function printPokemons(filter) {
                         </div>
                     </div>
                      `;
-
-            console.log(template);
 
         } catch (err) {
             console.log(err);
@@ -129,19 +118,31 @@ async function printPokemons(filter) {
         }
 
     }
+    // console.log(template);
     containerPokemons.innerHTML = template;
     cards.textContent = `${loadPokemons} cards`;
 }
 
 
-document.addEventListener("DOMContentLoaded", (e) => loadData());
-document.addEventListener("DOMContentLoaded", (e) => printPokemons());
-filtertype.addEventListener("click", filteroptions)
+filtertype.addEventListener("click", (e) =>{
+    let template = "";
+    if (e.target.matches(".filter li a")) {
+        e.preventDefault();
+        filter = e.target.textContent.toLowerCase();
+    }
+    // console.log(filter);
+    filterPokemons(filter);
+    printPokemons(filter);
+});
+
 showMoreButton.addEventListener("click", (e) =>{
     loadPokemons +=8;
     initialPokemons +=8;
     cards.textContent = `${loadPokemons} cards`;
-    printPokemons();
+    printPokemons(filter);
     e.preventDefault();
 
 });
+
+document.addEventListener("DOMContentLoaded", (e) => loadData());
+document.addEventListener("DOMContentLoaded", (e) => printPokemons());
