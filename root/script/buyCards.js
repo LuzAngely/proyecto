@@ -7,11 +7,7 @@ let pokeAPI = "https://pokeapi.co/api/v2";
 let template = "";
 let loadPokemons = 8;
 let initialPokemons = 0;
-let filter = undefined;
-
-
-
-
+let auxFilter = undefined;
 
 async function loadData() {
     try {
@@ -62,6 +58,14 @@ async function filterPokemons(filter) {
 
 
 async function printPokemons(filter) {
+
+    let auxFilter1 = filter
+    if(auxFilter != auxFilter1){
+        auxFilter = auxFilter1;
+        template = ""
+        loadPokemons = 8;
+        initialPokemons = 0;
+    }
 
     let datafilter = await filterPokemons(filter);
     console.log(datafilter)
@@ -118,14 +122,13 @@ async function printPokemons(filter) {
         }
 
     }
-    // console.log(template);
+    console.log(template);
     containerPokemons.innerHTML = template;
     cards.textContent = `${loadPokemons} cards`;
 }
 
 
 filtertype.addEventListener("click", (e) =>{
-    let template = "";
     if (e.target.matches(".filter li a")) {
         e.preventDefault();
         filter = e.target.textContent.toLowerCase();
