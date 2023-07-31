@@ -3,10 +3,12 @@ const showMoreButton = document.querySelector(".buttonMore");
 let cards = document.querySelector(".cartas");
 let filtertype = document.querySelector(".filter");
 
+
 let pokeAPI = "https://pokeapi.co/api/v2";
 let template = "";
 let loadPokemons = 8;
 let initialPokemons = 0;
+let filter = undefined;
 let auxFilter = undefined;
 
 async function loadData() {
@@ -38,7 +40,7 @@ async function filterPokemons(filter) {
     let res;
     let resType;
     let dataType;
-    
+
     if (filter === undefined || filter === "all") {
         res = data.results
         console.log("estoy en todo")
@@ -47,12 +49,12 @@ async function filterPokemons(filter) {
     } else
 
         resType = await fetch(`${pokeAPI}/type/${filter}`);
-        dataType = await resType.json();
-        res = dataType.pokemon
-        // console.log("Aqui el res:",res);
-        console.log("Estoy en", filter);
-        // console.log(res[1].pokemon.url)
-        return res
+    dataType = await resType.json();
+    res = dataType.pokemon
+    // console.log("Aqui el res:",res);
+    console.log("Estoy en", filter);
+    // console.log(res[1].pokemon.url)
+    return res
 }
 
 
@@ -60,7 +62,7 @@ async function filterPokemons(filter) {
 async function printPokemons(filter) {
 
     let auxFilter1 = filter
-    if(auxFilter != auxFilter1){
+    if (auxFilter != auxFilter1) {
         auxFilter = auxFilter1;
         template = ""
         loadPokemons = 8;
@@ -68,8 +70,8 @@ async function printPokemons(filter) {
     }
 
     let datafilter = await filterPokemons(filter);
-    console.log(datafilter)
-    
+    // console.log(datafilter)
+
 
     for (let i = initialPokemons; i < loadPokemons; i++) {
 
@@ -77,14 +79,14 @@ async function printPokemons(filter) {
 
             let res;
             let pokemon;
-    
-            if (filter === undefined || filter === "all"){
-                res = await fetch (datafilter[i].url);
+
+            if (filter === undefined || filter === "all") {
+                res = await fetch(datafilter[i].url);
                 // console.log(res,pokemon)
-            } else if( filter !== undefined && filter !== "all"){
+            } else if (filter !== undefined && filter !== "all") {
                 // console.log("Si se cumplio el filtro de", filter)
                 // console.log(datafilter[i].pokemon.url)
-                res = await fetch (datafilter[i].pokemon.url);
+                res = await fetch(datafilter[i].pokemon.url);
             }
             pokemon = await res.json();
 
@@ -122,14 +124,18 @@ async function printPokemons(filter) {
         }
 
     }
-    console.log(template);
+    // console.log(template);
     containerPokemons.innerHTML = template;
     cards.textContent = `${loadPokemons} cards`;
 }
 
 
-filtertype.addEventListener("click", (e) =>{
-    if (e.target.matches(".filter li a")) {
+filtertype.addEventListener("click", (e) => {
+    let navFilter = document.querySelector(".active");
+    navFilter.classList.replace('active','inactive');
+    e.target.classList.replace('inactive','active');
+    e.preventDefault();
+    if (e.target.matches(".filter li")) {
         e.preventDefault();
         filter = e.target.textContent.toLowerCase();
     }
@@ -138,9 +144,9 @@ filtertype.addEventListener("click", (e) =>{
     printPokemons(filter);
 });
 
-showMoreButton.addEventListener("click", (e) =>{
-    loadPokemons +=8;
-    initialPokemons +=8;
+showMoreButton.addEventListener("click", (e) => {
+    loadPokemons += 8;
+    initialPokemons += 8;
     cards.textContent = `${loadPokemons} cards`;
     printPokemons(filter);
     e.preventDefault();

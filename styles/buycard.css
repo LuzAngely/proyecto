@@ -5,13 +5,18 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+:root{
+    --black: black;
+
+}
+
 body{
     max-width: 100%;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--black);
 }
 
 ul {
@@ -56,18 +61,43 @@ h1{
     justify-content: space-around;
     width: 90%;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.filter li {
+/* .filter li {
     border-bottom: 1px solid gray;
     font-weight: normal;
     width: 100%;
-    text-align: center/* fuente normal por defecto */
-}
+    text-align: center;
+    cursor: pointer;
+} */
   
 .filter li:hover {
     border-bottom: 2px solid black; /* línea negra al pasar el mouse */
     font-weight: bold; /* fuente en negrita al pasar el mouse */
+}
+.navFilter{
+    color: black;
+    margin: 2% 0;
+    width: 100%;    
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.active {
+    font-weight: bold; 
+    border-bottom: 2px solid black;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inactive {
+    color:black;
+    border-bottom: 1px solid #486284;
+    font-weight: normal;
+    width: 100%;
 }
 
 .grid{
