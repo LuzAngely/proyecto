@@ -83,6 +83,7 @@ h1{
     padding-bottom: 1%;
     margin-bottom: 1%;
     text-align: center;
+    cursor: pointer;
 }
 
 .active {
@@ -90,7 +91,6 @@ h1{
     border-bottom: 2px solid black;
     width: 100%;
     text-align: center;
-    cursor: pointer;
 }
 
 .inactive {
@@ -118,6 +118,10 @@ h1{
     border: none;
     margin: 5% 0;
     width: 90%;
+}
+
+.fa-sharp {
+    cursor: pointer;
 }
 
 .contenidocarta{

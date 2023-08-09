@@ -57,8 +57,6 @@ async function filterPokemons(filter) {
     return res
 }
 
-
-
 async function printPokemons(filter) {
 
     let auxFilter1 = filter
@@ -129,7 +127,6 @@ async function printPokemons(filter) {
     cards.textContent = `${loadPokemons} cards`;
 }
 
-
 filtertype.addEventListener("click", (e) => {
     let navFilter = document.querySelector(".active");
     navFilter.classList.replace('active','inactive');
@@ -152,6 +149,7 @@ showMoreButton.addEventListener("click", (e) => {
     e.preventDefault();
 
 });
+
 
 document.addEventListener("DOMContentLoaded", (e) => loadData());
 document.addEventListener("DOMContentLoaded", (e) => printPokemons());

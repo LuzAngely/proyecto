@@ -4,7 +4,7 @@
     color: #ffffff;
   }
   
-.dark_mode>main>section>ul>li>a{
+.dark_mode>main>section>ul>li{
     color: white;
 }
 .dark_mode h1{
@@ -16,10 +16,33 @@
 }
 
 .dark_mode>main>section>ul>li:hover {
-  border-bottom: 2px solid white; /* línea negra al pasar el mouse */
+  border-bottom: 2px solid white; 
   font-weight: bold; 
 }
 
+/* /* .dark_mode>main>section>ul>li>navFilter{
+  border-bottom: 2px solid white; 
+  font-weight: bold; 
+} */
+
+.dark_mode .active {
+  color:white;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+  width: 100%;
+} 
+
+.dark_mode .inactive {
+  color:white;
+  border-bottom: 1px solid #737982;
+  font-weight: normal;
+  width: 100%;
+} 
+
 .colortitle{
+  color: white;
+}
+
+.dark_mode .cartas {
   color: white;
 }
